@@ -51,7 +51,7 @@ public:
   /**
    * @param file_path the path of the mesh file
    */
-  Renderer3dImpl(const std::string & mesh_path, int width, int height);
+  Renderer3dImpl(const std::string & mesh_path, int width, int height, bool ini_glut = true);
 
   ~Renderer3dImpl()
   {

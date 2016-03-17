@@ -48,14 +48,14 @@
 #include <object_recognition_renderer/renderer2d.h>
 
 void render3d(std::string file_name, size_t width, size_t height) {
-  Renderer3d renderer = Renderer3d(file_name);
+  boost::shared_ptr<Renderer3d> renderer(new Renderer3d(file_name));
 
   double near = 0.1, far = 1000;
   double focal_length_x = 525, focal_length_y = 525;
 
-  renderer.set_parameters(width, height, focal_length_x, focal_length_y, near, far);
+  renderer->set_parameters(width, height, focal_length_x, focal_length_y, near, far);
 
-  RendererIterator renderer_iterator = RendererIterator(&renderer, 150);
+  RendererIterator renderer_iterator = RendererIterator(renderer, 150);
 
   cv::Rect rect;
   cv::Mat image, depth, mask;

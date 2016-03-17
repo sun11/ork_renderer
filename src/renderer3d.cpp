@@ -50,9 +50,9 @@
 #include "renderer3d_impl_osmesa.h"
 #endif
 
-Renderer3d::Renderer3d(const std::string & mesh_path)
+Renderer3d::Renderer3d(const std::string & mesh_path, bool initialize_glut)
     :
-      renderer_(new Renderer3dImpl(mesh_path, 0, 0)),
+      renderer_(new Renderer3dImpl(mesh_path, 0, 0, initialize_glut)),
       angle_(0),
       focal_length_x_(0),
       focal_length_y_(0),

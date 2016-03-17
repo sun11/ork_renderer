@@ -41,9 +41,9 @@
 
 #include "renderer3d_impl_glut.h"
 
-Renderer3dImpl::Renderer3dImpl(const std::string & file_path, int width, int height) :
+Renderer3dImpl::Renderer3dImpl(const std::string & file_path, int width, int height, bool do_initialize_glut) :
         Renderer3dImplBase(file_path, width, height),
-        is_glut_initialized_(false)
+        is_glut_initialized_(!do_initialize_glut)
 {
 };
 
@@ -74,12 +74,10 @@ Renderer3dImpl::set_parameters_low_level()
   if (!is_glut_initialized_) {
     is_glut_initialized_ = true;
     glutInit(&argc, argv);
+    glutCreateWindow("Assimp renderer");
   }
-
-  // By doing so, the window is not open
   glutInitDisplayMode(GLUT_DOUBLE);
-  glutCreateWindow("Assimp renderer");
-
+  
   // create a framebuffer object
   glGenFramebuffers(1, &fbo_id_);
   glBindFramebuffer(GL_FRAMEBUFFER, fbo_id_);

@@ -40,7 +40,7 @@
 /**
  * @param file_path the path of the mesh file
  */
-Renderer3dImpl::Renderer3dImpl(const std::string & mesh_path, int width, int height)
+Renderer3dImpl::Renderer3dImpl(const std::string & mesh_path, int width, int height, bool)
     :
       Renderer3dImplBase(mesh_path, width, height),
       ctx_(0),

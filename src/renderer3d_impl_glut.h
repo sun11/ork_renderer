@@ -53,9 +53,9 @@ public:
   /**
    * @param file_path the path of the mesh file
    */
-  Renderer3dImpl(const std::string & file_path, int width, int height);
+  Renderer3dImpl(const std::string & file_path, int width, int height, bool initialize_glut = true);
 
-  ~Renderer3dImpl()
+  virtual ~Renderer3dImpl()
   {
     clean_buffers();
   }

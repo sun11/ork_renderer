@@ -61,7 +61,7 @@ public:
   /**
    * @param file_path the path of the mesh file
    */
-  Renderer3d(const std::string & file_path);
+  Renderer3d(const std::string & file_path, bool do_initialize_glut = true);
 
   virtual
   ~Renderer3d();
